@@ -1,5 +1,7 @@
 package main
 
+//testing
+
 import (
 	"encoding/csv"
 	"encoding/json"
@@ -56,8 +58,8 @@ func main() {
 	}
 }
 
-//'''Library for setting and hosting server'''
-//handleConnection :to handle incoming connection
+// ”'Library for setting and hosting server”'
+// handleConnection :to handle incoming connection
 func handleConnection(conn net.Conn) {
 	defer func() {
 		if err := conn.Close(); err != nil {
@@ -115,7 +117,7 @@ func handleConnection(conn net.Conn) {
 	}
 }
 
-//parseCommand :to parse incoming input
+// parseCommand :to parse incoming input
 func parseCommand(cmdLine string) (param string) {
 	var result = map[string]map[string]string{}
 	json.Unmarshal([]byte(cmdLine), &result)
@@ -143,8 +145,8 @@ type covidstats struct {
 	Region                   string `json:"region"`
 }
 
-//'''Library for parsing and arranging data'''
-//Fetch :function to load and fetch csv file into table
+// ”'Library for parsing and arranging data”'
+// Fetch :function to load and fetch csv file into table
 func Fetch(path string) []covidstats {
 	table := make([]covidstats, 0)
 	file, err := os.Open(path)
@@ -176,7 +178,7 @@ func Fetch(path string) []covidstats {
 	return table
 }
 
-//Query :function to query the table and return results
+// Query :function to query the table and return results
 func Query(table []covidstats, filter string) []covidstats {
 	result := make([]covidstats, 0)
 	filter = strings.ToLower(filter)
@@ -189,7 +191,7 @@ func Query(table []covidstats, filter string) []covidstats {
 	return result
 }
 
-//DateFormat: to format date to said format
+// DateFormat: to format date to said format
 func DateFormat(DateString string) string {
 	var strDate = string(DateString[2])
 	switch {
